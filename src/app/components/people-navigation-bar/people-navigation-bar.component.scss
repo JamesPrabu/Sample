@@ -1,0 +1,26 @@
+nav {
+    background-color: #00000057;
+    height: 100%;
+    min-height: 90vh;
+  }
+  
+  a.nav-link {
+    display: block;
+    color: white;
+    background-color: #ffffff00;
+    padding: 1em 0.5em;
+  }
+  
+  a.active {
+    background-color: #1B8FC8;
+  }
+  
+  a.nav-link:hover {
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav.flex-column {
+    min-width: 9em;
+  }
+  

@@ -1,0 +1,99 @@
+caption {
+  caption-side: top;
+  border-bottom-width: 0;
+  font-weight: bold;
+  padding: 0;
+  color: white;
+  font-size: 1.5em;
+  background-color: rgba(51, 51, 51, 0.57);
+}
+
+tr {
+  padding: 10px;
+  width: 100%;
+}
+
+th, td {
+  padding: 6px 10px;
+  width: 12%;
+}
+
+
+td {
+  word-wrap: break-word;
+}
+
+input {
+  width: 100%;
+}
+
+table {
+  table-layout: fixed;
+  padding: 10px;
+  width: 100%;
+}
+
+tbody tr:nth-child(even){
+  background-color: #F0F0F0;
+}
+tbody tr:first-child {
+  background: white;
+}
+
+.table-container {
+  background-color: white;
+}
+
+td {
+  font-size: 14px;
+}
+
+.button-header {
+  background-color: white;
+  color: black;
+  height: 3em;
+  font-size: 12pt;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-top: 13px !important;
+  padding-right: 11px !important;
+}
+.title-header {
+  padding: 7px;
+}
+
+button.btn-primary{
+  float: right;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+span.helper-text {
+  font-weight: normal;
+}
+
+.check-box-cell {
+  width: 4%;
+}
+
+tbody {
+  display:block;
+  height: 70vh;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.last-name-link {
+  color:blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.table, th, tr, td{
+  border: none;
+}
+.table td{
+  border-top: none;
+}

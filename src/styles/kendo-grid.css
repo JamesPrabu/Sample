@@ -1,0 +1,117 @@
+::ng-deep .k-link {
+  font-weight: bold !important;
+  font-family: Rubik;
+}
+
+::ng-deep .k-grid tr.k-alt {
+  background-color: white;
+}
+
+::ng-deep .k-grid thead tr:first-child {
+  background-color: white;
+}
+
+::ng-deep .k-grid thead tr:nth-child(2) {
+  background-color: white;
+}
+
+::ng-deep .k-grid tr {
+  background-color: #f0f0f0;
+}
+
+::ng-deep .k-grid-header,
+.k-grid-toolbar,
+.k-grouping-header,
+.k-grid-add-row,
+.k-grid-footer {
+  color: black;
+}
+
+::ng-deep .k-grid tbody {
+  color: black;
+}
+
+::ng-deep .k-grid-header .k-i-sort-asc-sm,
+.k-grid-header .k-i-sort-desc-sm,
+.k-grid-header .k-sort-order {
+  display: none;
+}
+
+::ng-deep .k-grid-header .k-header > .k-link > .k-icon.k-i-sort-desc-sm,
+.k-grid-header .k-header > .k-link > .k-icon.k-i-sort-asc-sm {
+  display: none;
+}
+
+::ng-deep .k-grid tr:hover {
+  background: transparent;
+  color: currentColor !important;
+}
+
+::ng-deep .k-grid tr.k-alt:hover {
+  background: transparent;
+  color: currentColor !important;
+}
+
+::ng-deep span.k-icon.k-i-arrow-e:hover {
+  color: white;
+}
+
+::ng-deep .k-grid tr.k-state-selected > td {
+  background: transparent;
+  color: currentColor !important;
+}
+
+::ng-deep .k-checkbox:checked + .k-checkbox-label::before {
+  border-color: #105220;
+  background-color: #285813;
+}
+
+::ng-deep .k-checkbox:indeterminate + .k-checkbox-label::after {
+  background-color: #6bad41;
+}
+
+::ng-deep .k-checkbox .k-checkbox-label {
+  border-color: initial;
+  background-color: initial;
+}
+
+::ng-deep .k-checkbox:checked + .k-checkbox-label::before {
+  border-color: initial;
+  background-color: #0c6112;
+}
+
+::ng-deep .k-pager-numbers .k-state-selected {
+  color: #1b8fc8;
+  background-color: lightgray;
+}
+
+::ng-deep .k-pager-numbers .k-link {
+  color: #1b8fc8;
+}
+
+::ng-deep .k-pager-numbers .k-link:hover,
+.k-pager-numbers .k-link.k-state-hover {
+  color: white;
+  background-color: #1b8fc8;
+}
+
+::ng-deep a.k-link.k-pager-nav:hover {
+  background-color: #1b8fc8;
+  color: white;
+}
+
+::ng-deep span.k-icon.k-i-arrow-e:hover {
+  color: white;
+}
+
+::ng-deep .k-grid-norecords {
+  display: none;
+}
+
+::ng-deep .k-sort-order {
+  display: none !important;
+}
+
+::ng-deep .k-i-filter {
+  font-size: 10.5pt;
+}

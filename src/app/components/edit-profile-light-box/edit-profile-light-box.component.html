@@ -1,0 +1,32 @@
+<div class="profile-light-box" *ngIf="profileFormGroupService">
+    <div class="light-box-header profile-header">
+      <span class="light-box-header-right">
+        <a id="closeIcon" class="btn close-icon" (click)="closeLightBox()"></a>
+      </span> -->
+      <ul class="nav nav-tabs">
+        <li class="nav-item" *ngFor="let tab of lightBoxTabs; let i=index">
+          <span *ngIf="enableTab(i)" class="nav-link" [ngClass]="{'active':selectedLightBoxTab.index == i}" id={{tab.id}} (click)="tabSelection(tab)">{{tab.name}}</span>
+        </li>
+      </ul>
+    </div>
+    <hr class="profile-hr">
+    <div class="inner-content">
+      <form *ngIf="showProfileLightBox">
+        <basic-info-tab id="basic-info-tab-content" *ngIf="enableTabContent(tabBasicInfo)" [formGroup]="profileFormGroupService.formGroup" 
+          [eventParameters]="eventParameters" [currentUserInfo]="currentUserInfo" [regions]="regions" 
+          [personSpiritualGifts]="personSpiritualGifts" (spiritualGiftsChanged)="spiritualGifts_Changed($event)"
+          [personStrengths]="personStrengths" (strengthsChanged)="strengths_Changed($event)"
+          [personInterests]="personInterests" (interestsChanged)="interests_Changed($event)"
+          [personSkills]="personSkills" (skillsChanged)="skills_Changed($event)"
+        ></basic-info-tab>
+      </form>
+    </div>
+    <hr class="profile-hr">
+    <div class="light-box-footer local-footer" *ngIf="showButton">
+      <span id="required-note" class="text-content-3-gray">{{getTabFootNotes()}}</span>
+      <span class="light-box-footer-right">
+        <button id="save" class="btn btn-primary btn-sm" [disabled]="saveButtonDisable()" [ngClass]="{'hidden': this.selectedLightBoxTab.index === this.tabFaithJourney || this.selectedLightBoxTab.index === this.tabCommunications}" (click)="save()">Save</button>
+      </span>
+    </div>
+  </div>
+  

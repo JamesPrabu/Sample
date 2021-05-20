@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <header-bar></header-bar>
+    <div class="row bg">
+        <div id="sessionNavigationBar" class="nav-container-width">
+          <people-navigation-bar></people-navigation-bar>
+        </div>
+        <div class="page-container table-container-width">
+          <div id="alertsHeader" class="alerts-header">
+            <alert-message></alert-message>
+          </div>
+          <div>
+            <table id="personsTable" class="persons-table">
+              <caption id="personsTableCaption">
+                <div class="title-header">
+                  <span id="personsTableCaptionHeader">People ({{peopleCount}})</span>
+                  <div class="float-right mr-3">
+                    <button id="addPersonBtn" class="btn add-white-icon-24x24 mr-3" title="Add Person"
+                            (click)="openAddModal()"></button>
+                    <!-- <button id="sendButton" class="btn email-white-icon-24x24 mr-3" title="Email"
+                            [disabled]="!sendEmailShouldBeEnabled()" (click)="sendEmailOrText('email')"></button>
+                    <button id="importButton" class="btn import-white-icon-24x24 mr-3"  title="Import"
+                            (click)="import()"></button>
+                    <button id="exportButton" class="btn export-white-icon-24x24 mr-3"  title="Export"
+                            [disabled]="false" (click)="export()"></button> -->
+                    <button id="deleteButton" class="btn delete-white-icon-24x24 mr-3" title="Delete One Person"
+                            [disabled]="disableDeleteButton" (click)="deleteButton_Click()"
+                            *ngIf="showDeleteButtonFeature"></button>
+                  </div>
+                </div>
+              </caption>
+              <div >
+               
+                <!-- <kendo-grid id="peopleKendoGrid" [kendoGridBinding]="this.profiles" [height]="683"
+                [sortable]="{allowUnsort: false}" [filterable]="true" [sort]="sort" [resizable]="true"
+                [pageSize]="20" [pageable]="true">
+                  <kendo-grid-column kendoGridEditTemplate [width]="40"> [kendoGridBinding]="this.profiles"
+                    <ng-template kendoGridHeaderTemplate let-dataItem id="allPeopleCheckBox">
+                      <input type="checkbox" (change)="toggleSelectAllPeople($event)"
+                            />
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem id=individualPeopleCheckBox>
+                      <input type="checkbox" 
+                             (change)="togglePeopleSelectedItem(dataItem, $event)"/>
+                    </ng-template>
+                  </kendo-grid-column>
+
+                  <kendo-grid-column kendoGridEditTemplate field="last_name">
+                    <ng-template kendoGridHeaderTemplate let-dataItem id="personsTableHeader">
+                      <span>Last Name<i class="fas fa-sort float-right"></i></span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem id=personsTableHeaderLastName>
+                      <span class="last-name-link" >{{dataItem.last_name}}</span>
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-column field="first_name" id=personsTableHeaderFirstName title="First Name">
+                    <ng-template class="sortable" kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span>First Name<i class="fas fa-sort float-right"></i></span>
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-column field="email_address" id=personsTableHeaderEmailAddress title="Email Address">
+                    <ng-template class="sortable" kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span>Email Address<i class="fas fa-sort float-right"></i></span>
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-column field="phone_number" id=personsTableHeaderPhoneNumber title="Phone Number">
+                    <ng-template class="sortable" kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span>Phone Number<i class="fas fa-sort float-right"></i></span>
+                    </ng-template>
+                  </kendo-grid-column> 
+                  <kendo-grid-messages pagerPage="people" pagerOf="of" pagerItems="people"
+                                       pagerItemsPerPage="people of people">
+                  </kendo-grid-messages>
+                </kendo-grid> -->
+
+
+                <kendo-grid #findPeopleGrid id="peopleKendoGrid"  (filterChange)="filterChangeEvent($event)" [kendoGridBinding]="profiles" [height]="480" [sortable]="{allowUnsort: false}" [filterable]="true" [sort]="sort" [resizable]="true" [pageSize]="20" [pageable]="true">
+                  <kendo-grid-column kendoGridEditTemplate [width]="40">
+                    <ng-template kendoGridHeaderTemplate let-dataItem id="allPeopleCheckBox">
+                      <input type="checkbox" (change)="toggleSelectAllPeople($event)" [checked]="selectedPeople.length === profiles.length && profiles.length > 0
+                      || selectedPeople.length === filteredSelectAllPeopleData.length && filteredSelectAllPeopleData.length > 0" />
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem id=individualPeopleCheckBox>
+                      <input type="checkbox" [checked]="selectedPeople.indexOf(dataItem) >= 0" (change)="togglePeopleSelectedItem(dataItem, $event)" />
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-column kendoGridEditTemplate field="person.last_name">
+                    <ng-template kendoGridHeaderTemplate let-dataItem id="personsTableHeader">
+                      <span>Last Name<i class="fas fa-sort float-right" aria-hidden="true"></i></span>
+                    </ng-template>
+                    <ng-template kendoGridCellTemplate let-dataItem id=personsTableHeaderLastName>
+                      <span class="clickable-text" (click)="openEditModal(dataItem)">{{dataItem.person.last_name}}</span>
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-column field="person.first_name" id=personsTableHeaderFirstName title="First Name">
+                    <ng-template class="sortable" kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span>First Name<i class="fas fa-sort float-right" aria-hidden="true"></i></span>
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-column field="person.email_address" id=personsTableHeaderEmailAddress title="Email Address">
+                    <ng-template class="sortable" kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span>Email Address<i class="fas fa-sort float-right" aria-hidden="true"></i></span>
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-column field="person.phone_number" id=personsTableHeaderPhoneNumber title="Phone Number">
+                    <ng-template class="sortable" kendoGridHeaderTemplate let-column let-columnIndex="columnIndex">
+                      <span>Phone Number<i class="fas fa-sort float-right" aria-hidden="true"></i></span>
+                    </ng-template>
+                  </kendo-grid-column>
+                  <kendo-grid-messages pagerPage="people" pagerOf="of" pagerItems="people" pagerItemsPerPage="people of people">
+                  </kendo-grid-messages>
+                </kendo-grid>
+              </div>
+            </table>
+          </div>
+        </div>
+      </div>    
+</div>

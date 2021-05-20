@@ -1,0 +1,767 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 361px,
+  md: 769px,
+  lg: 1281px,
+  xl: 1921px
+);
+
+$container-max-widths: (
+  sm: 768px,
+  md: 1280px,
+  lg: 1920px,
+  xl: 2800px
+);
+
+@import '~bootstrap/scss/bootstrap';
+// @import '~@ng-select/ng-select/themes/default.theme.css';
+
+// @import '~ng-wizard/themes/ng_wizard.min.css';
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.bg {
+  background-image: url('../assets/img/background.jpg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.retreat-background-image {
+  background-image: url('../assets/img/retreat_background_image.jpg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.emilia-background-image {
+  background-image: url('../assets/img/emilia_background_image.jpg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+.btn-primary {
+  padding: 2px 20px;
+  background-color: #1b8fc8;
+  font-size: 16px;
+}
+
+.btn-primary[disabled] {
+  background-color: #c9c9c9;
+  border-color: #c9c9c9;
+  color: #666666;
+  opacity: 0.65 !important;
+}
+
+.btn-secondary {
+  padding: 1px 18px;
+  background-color: white;
+  border: solid 2px #1b8fc8;
+  font-size: 16px;
+  color: black;
+}
+
+.btn-secondary[disabled] {
+  background-color: #c9c9c9;
+  border-color: #c9c9c9;
+  color: #666666;
+  opacity: 0.65 !important;
+}
+
+.page-header {
+  min-height: 85px;
+}
+
+.btn-short {
+  width: 91px;
+  height: 28px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn-long {
+  width: 200px;
+  height: 36px;
+}
+
+.btn-medium {
+  width: 200px;
+  height: 28px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.toolbar-header {
+  font-size: 32px;
+}
+
+.table-title {
+  font-size: 24px;
+  font-weight: normal;
+  background-color: rgba(51, 51, 51, 0.57);
+  color: white;
+  padding: 6px 10px;
+  width: 100%;
+}
+
+div.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  margin-right: 8px;
+}
+
+::placeholder,
+::-ms-input-placeholder,
+::-webkit-input-placeholder {
+  color: #1b8fc8;
+}
+
+.save-button-row {
+  margin-top: 10px;
+  padding-right: 10px;
+}
+
+.caption {
+  caption-side: top;
+  font-weight: bold;
+  padding-left: 10px;
+  color: white;
+  font-size: 1.5em;
+  float: left;
+}
+
+.alerts-header {
+  height: 3em;
+  font-size: 12pt;
+}
+
+.navigation-bar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.modal-xxl .modal-lg {
+  max-width: 75%;
+}
+
+.modal-xl .modal-lg {
+  max-width: 55%;
+}
+.modal-md .modal-lg {
+  max-width: 60%;
+}
+
+.modal-settings .modal-lg {
+  max-width: 75%;
+}
+
+.min-width-401 {
+  min-width: 401px;
+}
+
+.input-label {
+  font-weight: 700;
+}
+
+.nav-container-width {
+  flex: 1 auto;
+  max-width: min-content;
+}
+
+.table-container-width {
+  flex: 2 0;
+  margin-right: 16px;
+  margin-left: 16px;
+}
+
+.icons-padding {
+  margin-right: 22px;
+}
+
+.delete-icon {
+  background: url('../assets/img/Delete-Black.svg') no-repeat;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.delete-white-icon {
+  background: url('../assets/img/Delete-White.svg') no-repeat;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.delete-white-icon-24x24 {
+  background: url('../assets/img/Delete-White.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.import-black-icon {
+  background: url('../assets/img/Import-black.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.import-white-icon {
+  background: url('../assets/img/Import-White.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.import-white-icon-24x24 {
+  background: url('../assets/img/Import-White.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.export-black-icon {
+  background: url('../assets/img/Export-Black.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.export-white-icon {
+  background: url('../assets/img/Export-White.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.export-white-icon-24x24 {
+  background: url('../assets/img/Export-White.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.add-black-icon {
+  background: url('../assets/img/Add-black.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.add-black-icon-20x20 {
+  background: url('../assets/img/Add-black.svg') no-repeat;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.add-black-icon-30x30 {
+  background: url('../assets/img/Add-black.svg') no-repeat;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.add-white-icon {
+  background: url('../assets/img/Add-white.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.add-white-icon-24x24 {
+  background: url('../assets/img/Add-white.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.user-x-icon {
+  background: url('../assets/img/user-x.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border: none;
+}
+.view-details-black-icon {
+  background: url('../assets/img/view-details-black.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.edit-black-icon {
+  background: url('../assets/img/Edit-Black.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.edit-white-icon-24x24 {
+  background: url('../assets/img/Edit-white.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.customize-black-icon {
+  background: url('../assets/img/Edit-Black.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.email-icon {
+  background: url('../assets/img/Email-Black.svg') no-repeat;
+  width: 25px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.email-white-icon {
+  background: url('../assets/img/Email-White.svg') no-repeat;
+  width: 25px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.email-white-icon-24x24 {
+  background: url('../assets/img/Email-White.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.print-white-icon {
+  background: url('../assets/img/Print-White.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.close-icon {
+  background: url('../assets/img/x.svg') no-repeat;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.calendar-icon {
+  background: url('../assets/img/Calendar-Black.svg') no-repeat;
+  width: 26px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.grow-search {
+  background: url('../assets/img/search.svg') no-repeat;
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.text-icon {
+  background: url('../assets/img/text-black.svg');
+  width: 25px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.text-icon-white-24x24 {
+  background: url('../assets/img/text-white.svg');
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.lock-icon-16x16 {
+  background: url('../assets/img/text-white.svg');
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.add-group-label {
+  cursor: pointer;
+}
+
+.assigned-participant-text {
+  color: grey;
+}
+
+.right-align {
+  float: right;
+}
+.left-align {
+  float: left;
+}
+
+.require-note {
+  float: left;
+  font-size: 13px;
+  font-style: italic;
+  padding-top: 12px;
+}
+
+th.sortable {
+  padding-right: 25px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+th.sortable i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+#invalidEmailErrorMessage {
+  color: red;
+  font-size: 13px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.email-error-border-before {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+}
+
+.email-error-border {
+  outline: red 1px solid;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-bottom: 8px;
+}
+
+.margin-bottom-8 {
+  margin-bottom: 8px;
+}
+
+.padding-top-error-message {
+  padding-top: 1rem !important;
+}
+
+.error-text {
+  font-size: 14px;
+  padding-left: 8px;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+.btn-settings {
+  padding: 1px 18px;
+  background-color: white;
+  border: solid 2px #1b8fc8;
+  font-size: 16px;
+  color: black;
+}
+
+.btn-settings:hover {
+  background-color: #007bff;
+}
+
+.nav-tabs .nav-link {
+  font-size: 14pt;
+  font-weight: normal;
+  color: #495057;
+  padding: 8px 10px;
+  width: 209px;
+
+  border: 0;
+  border-bottom: 1px solid #1b8fc8;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #cde6f3;
+  border-bottom: 1px solid #1b8fc8;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.nav-tabs .nav-link:hover {
+  border: 0;
+  border-bottom: 1px solid #1b8fc8;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #1b8fc8;
+}
+
+.page-prompt-title {
+  padding-right: 0;
+}
+
+.page-prompt-label {
+  cursor: pointer;
+}
+
+.button-mode {
+  cursor: pointer;
+}
+
+//Color bars
+.ColorBar1 {
+  width: 11px;
+  margin-right: 5px;
+}
+
+.preferred-contact-checkbox {
+  margin-top: 25px;
+}
+
+#participantRegistrationLink,
+#volunteerRegistrationLink,
+#groupMemberRegistrationLink {
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+//.header-text {
+//  font-size: 1rem;
+//  font-family: Rubik;
+//  font-weight: bold;
+//}
+
+.handCursor {
+  cursor: pointer;
+}
+
+label.box-header {
+  margin-bottom: 0;
+}
+
+/* top navigation bar */
+.top-nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  max-height: 78px;
+}
+
+/* Style Guide - Lightboxes */
+.light-box {
+  margin: 20px;
+}
+
+.light-box-header {
+  line-height: 1;
+}
+
+.light-box-header > span {
+  display: block;
+}
+
+.light-box-header > hr {
+  margin-top: 10px;
+  border-top-color: #212529;
+}
+
+.light-box-content {
+  margin: 20px;
+}
+
+.light-box-content-2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.light-box-footer {
+  display: table;
+  width: 100%;
+}
+
+.light-box-footer > span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.light-box-header-right,
+.light-box-footer-right {
+  text-align: right;
+}
+
+/* Style Guide - Fonts */
+.text-title-1 {
+  font-size: 24pt;
+}
+
+.text-title-2 {
+  font-size: 18pt;
+  color: #212529;
+}
+
+.text-title-3 {
+  font-size: 15pt;
+}
+
+.text-title-4 {
+  font-size: 13.5pt;
+}
+
+.text-title-5 {
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.text-title-6 {
+  font-size: 10.5pt;
+  font-weight: bold;
+}
+
+.text-content-1 {
+  font-size: 12pt;
+}
+
+.text-content-2 {
+  font-size: 10.5pt;
+}
+
+.text-content-3-white-background {
+  font-size: 10pt;
+  font-style: italic;
+  color: #595959;
+}
+
+.text-content-3-grey-background {
+  font-size: 10pt;
+  font-style: italic;
+  color: #ffffff;
+}
+
+.text-content-4 {
+  font-size: 10pt;
+  font-style: italic;
+  color: #919191;
+}
+
+.text-content-5 {
+  font-size: 10pt;
+  color: #dc3545;
+}
+
+.text-content-6 {
+  font-size: 9pt;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+// Confirmation light box
+.confirm-light-box {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.confirm-light-box-header {
+  line-height: 1;
+}
+
+.confirm-light-box-header > span {
+  display: block;
+}
+
+.confirm-light-box-header > hr {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border-top-color: #212529;
+}
+
+.confirm-light-box-divider-content {
+  margin-top: 14.5px;
+}
+
+.confirm-light-box-content-padding {
+  margin-left: 40px;
+  margin-top: -8px;
+  margin-bottom: 20px;
+}
+
+.confirm-light-box-header > hr {
+  margin-top: 13px;
+  border-top-color: #212529;
+}
+
+.confirm-light-box-header-right,
+.confirm-light-box-footer-right {
+  text-align: right;
+}
+
+.icon-align {
+  padding-top: 10px;
+}
+
+.confirm-light-box-action {
+  float: right;
+  margin-bottom: 20px;
+}
+
+.tiles-highlight {
+  border: 2px solid #007bff !important;
+  box-shadow: 3px 3px 3px 3px grey;
+}
+
+.current-person-helper-text {
+  opacity: 0.5;
+}
+
+.logged-user-icon {
+  background: url('../assets/img/user_icon.svg') no-repeat;
+  width: 32px !important;
+  height: 30px !important;
+  cursor: pointer;
+  margin-right: 3px;
+  border: none;
+}
+
+.wrappable-item {
+  white-space: normal;
+}
+
+// ParishSoft Member
+.parishSoft {
+  width: 100px;
+  background: #c8e0f0;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.alerts-header {
+  height: 3em;
+  font-size: 12pt;
+  width: 100%;
+  position: sticky;
+}

@@ -1,0 +1,187 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <button id="sendEmailButton" class="btn" [disabled]="!hasEmailAddress" (click)="sendEmailOrText('email')"
+      [ngClass]="{'icon-bar-button-disable': !hasEmailAddress, 'icon-bar-button-enable': hasEmailAddress}" [title]="sendEmailTitle">
+      <mat-icon svgIcon="email-in-circle" class="icon-bar-icon mr-1"></mat-icon>
+      <span class="text-content-1">Send email</span>
+    </button>
+    <button id="sendTextButton" class="btn" [disabled]="!hasPhoneNumber" (click)="sendEmailOrText('text')"
+      [ngClass]="{'icon-bar-button-disable': !hasPhoneNumber, 'icon-bar-button-enable': hasPhoneNumber}" [title]="sendTextTitle">
+      <mat-icon svgIcon="text-in-circle" class="icon-bar-icon mr-1"></mat-icon>
+      <span class="text-content-1">Send text</span>
+    </button>
+    <button id="logCallButton" class="btn" (click)="logCallButton_Click()" [disabled]="!hasPersonId"
+      [ngClass]="{'icon-bar-button-disable': !hasPersonId, 'icon-bar-button-enable': hasPersonId}" [title]="logCallTitle">
+      <mat-icon svgIcon="phone-in-circle" class="icon-bar-icon mr-1"></mat-icon>
+      <span class="text-content-1">Log call</span>
+    </button>
+    <button id="logMeetingButton" class="btn" (click)="logMeetingButton_Click()" [disabled]="!hasPersonId"
+      [ngClass]="{'icon-bar-button-disable': !hasPersonId, 'icon-bar-button-enable': hasPersonId}" [title]="logMeetingTitle">
+      <mat-icon svgIcon="meeting-in-circle" class="icon-bar-icon mr-1"></mat-icon>
+      <span class="text-content-1">Log Meeting</span>
+    </button>
+  </div>
+  <div >
+    <div class="d-flex align-items-center pl-4" [ngClass]="{'hidden': !isInvalidEmail}" id="invalidEmailErrorMessage">
+      <span class="fas fa-exclamation-circle"></span><span class="error-text">Please enter a valid email address</span>
+    </div>
+    <!-- <div fxLayoutAlign="center center" class="text-content-2">
+      BASIC DETAILS
+    </div>
+    <div class="row padding-top-error-message">
+      <div class="col-6">
+        <div class="row form-group">
+          <label id="first-name-label" class="col-4 col-form-label text-content-2" for="first-name">First Name*</label>
+          <div class="col-8">
+            <input class="form-control text-content-2" type="text" id="first-name" [formControlName]="keys.FIRST_NAME">
+          </div>
+        </div>
+        <div class="row form-group" [ngClass]="{'email-error-border': isInvalidEmail}">
+          <label id="email-address-label" class="col-4 col-form-label text-content-2" for="email-address">Email*</label>
+          <div class="col-8">
+            <input class="form-control text-content-2" type="text" id="email-address" [formControlName]="keys.EMAIL_ADDRESS" (keypress)="preventWhiteSpace($event)" placeholder="Phone or email required">
+          </div>
+        </div>
+        <div class="row no-gutters input-group mb-2" *ngIf="preferredContact">
+          <label id="preferredContactLabel" class="col-4 text-content-2" for="#">Preferred Communication<br>Method</label>
+          <div class="col-8 preferred-contact-checkbox" *ngIf="formGroup.get(keys.PREFERRED_CONTACT).value">
+            <div class="form-check-inline ml-3" id="contactList" *ngFor="let contact of preferredContactFormArray.controls; let i = index;">
+              <label id="contactLabel{{i}}" class="form-check-label text-content-2">
+                <input type="checkbox" id="contact{{i}}" class="form-check-input text-content-2" name="contact{{i}}" [formControl]="contact">{{preferredContact[i].lookup_name}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group" *ngIf="!mobileFieldsRetired">
+          <label id="mobile-carrier-label" class="col-4 col-form-label text-content-2" for="mobile-carrier-input">Mobile Carrier</label>
+          <div class="col-8">
+            <ng-select id="mobile-carrier-input" class="text-content-2" placeholder="Select..." [formControlName]="keys.MOBILE_CARRIER" [items]="mobileCarrierList" bindLabel="carrier_name" bindValue="pk_id"></ng-select>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row form-group">
+          <label id="last-name-label" class="col-4 col-form-label text-content-2" for="last-name">Last Name*</label>
+          <div class="col-8">
+            <input class="form-control text-content-2" type="text" id="last-name" [formControlName]="keys.LAST_NAME">
+          </div>
+        </div>
+        <div class="row form-group">
+          <label id="phone-number-label" class="col-4 col-form-label text-content-2" for="phone-number">Phone Number*</label>
+          <div class="col-8">
+            <input class="form-control text-content-2" type="text" id="phone-number" [formControlName]="keys.PHONE_NUMBER" appFormatTelephoneNumber placeholder="Phone or email required">
+          </div>
+        </div>
+        <div class="row form-group">
+          <label id="dietary-restrictions-label" class="col-4 col-form-label text-content-2" for="dietary-restrictions-input">Dietary Restrictions</label>
+          <div class="col-8">
+            <textarea class="form-control text-content-2" type="text" id="dietary-restrictions-input" [formControlName]="keys.DIETARY_RESTRICTIONS" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="row form-group" *ngIf="formGroup.get(keys.MOBILE_CARRIER).value == 'OTHER' && !mobileFieldsRetired">
+          <label id="other-carrier-label" class="col-4 col-form-label text-content-2" for="other-carrier">Other Carrier</label>
+          <div class="col-8">
+            <input class="form-control text-content-2" type="text" id="other-carrier" [formControlName]="keys.OTHER_CARRIER">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center" class="text-content-2 pt-3 pb-3">
+      DEMOGRAPHIC DATA
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="row form-group">
+          <label id="dateOfBirthLabel" class="col-4 col-form-label text-content-2" for="dateOfBirthInput">Date of Birth</label>
+          <div class="input-group col-8">
+            <input id="dateOfBirthInput" class="form-control datepickerInput text-content-2" placeholder="MM-DD-YYYY" name="dateOfBirth" ngbDatepicker #dateOfBirth="ngbDatepicker" [minDate]="minYear" [maxDate]="maxYear" [formControlName]="keys.DATE_OF_BIRTH" appDateValidator>
+            <div class="input-group-append">
+              <button id="dateOfBirthButton" class="btn btn-outline-secondary margin-0 text-content-2" (click)="dateOfBirth.toggle()" [disabled]="formGroup.get(keys.DATE_OF_BIRTH).disabled ? true: false"><span class="fas fa-calendar-alt"></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="row form-group">
+          <label id="region-label" class="col-4 col-form-label text-content-2" for="region-input" [title]="regions ? regionTitle1 : regionTitle2">Region</label>
+          <div class="col-8">
+            <ng-select id="region-input" class="text-content-2" placeholder="Select..." [formControlName]="keys.REGION" [items]="regions" bindLabel="item_text" bindValue="pk_id"></ng-select>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group row">
+          <label id="gender-label" class="col-4 col-form-label text-content-2" for="#">Gender</label>
+          <div class="col-8 row pl-4 pt-2 d-flex flex-wrap text-content-2">
+            <span class="pr-3 pb-1 align-self-start">
+              <input type="radio" id="genderOne" value="Male" name="gender" [formControlName]="keys.GENDER"> Male
+            </span>
+            <span class="pr-3 pb-1 align-self-center">
+              <input type="radio" id="genderTwo" value="Female" name="gender" [formControlName]="keys.GENDER"> Female
+            </span>
+            <span class="pb-1 align-self-end">
+              <input type="radio" id="genderThree" value="Decline to Answer" name="gender" [formControlName]="keys.GENDER"> Decline to Answer
+            </span>
+          </div>
+        </div>
+        <div class="row form-group">
+          <label for="parish" id="parishLabel" class="col-4 col-form-label text-content-2">Current Church/Parish</label>
+          <div class="col-8">
+            <input id="parish" type="text" maxlength="50" class="form-control text-content-2" [formControlName]="keys.PARISH">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center" class="text-content-2 pt-3 pb-3">
+      INTERESTS, SKILLS, SPIRITUAL GIFTS
+    </div>    
+    <div class="row">
+      <div class="col-6">
+        <div class="row form-group">
+          <label id="skills-label" class="col-4 col-form-label text-content-2" for="personSkillsComponent">Skills</label>
+          <div class="col-8 pt-2">
+            <person-lookup-multi-select id="personSkillsComponent" [personId]="personId" [personSelection]="personSkills" [currentUserInfo]="currentUserInfo" [lookupAttributes]="skillLookupAttributes" (selectionChanged)="skills_Changed($event)"></person-lookup-multi-select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <label id="strengths-label" class="col-4 col-form-label text-content-2" for="personStrengthsComponent">Strengths</label>
+          <div class="col-8 pt-2">
+            <person-lookup-multi-select id="personStrengthsComponent" [personId]="personId" [personSelection]="personStrengths" [currentUserInfo]="currentUserInfo" [lookupAttributes]="strengthLookupAttributes" (selectionChanged)="strengths_Changed($event)"></person-lookup-multi-select>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row form-group">
+          <label id="spiritual-gifts-label" class="col-4 col-form-label text-content-2" for="personSpiritualGiftsComponent">Spiritual Gifts</label>
+          <div class="col-8 pt-2">
+            <person-lookup-multi-select id="personSpiritualGiftsComponent" [personId]="personId" [personSelection]="personSpiritualGifts" [currentUserInfo]="currentUserInfo" [lookupAttributes]="spiritualGiftLookupAttributes" (selectionChanged)="spiritualGifts_Changed($event)"></person-lookup-multi-select>
+          </div>
+        </div>
+        <div class="row form-group">
+          <label id="interests-label" class="col-4 col-form-label text-content-2" for="personInterestsComponent">Interests</label>
+          <div class="col-8 pt-2">
+            <person-lookup-multi-select id="personInterestsComponent" [personId]="personId" [personSelection]="personInterests" [currentUserInfo]="currentUserInfo" [lookupAttributes]="interestLookupAttributes" (selectionChanged)="interests_Changed($event)"></person-lookup-multi-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div fxLayoutAlign="center center" class="text-content-2 pt-3 pb-3">
+      FAITHS & BELIEFS
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="row form-group">
+          <label id="religious-affiliation-label" class="col-4 col-form-label text-content-2" for="religious-affiliation-input">Religious Affiliation</label>
+          <div class="col-8">
+            <ng-select id="religious-affiliation-input" class="text-content-2" placeholder="Select..." [formControlName]="keys.RELIGIOUS_AFFILIATION" [items]="religiousAffiliations" bindLabel="religious_affiliation_name" bindValue="religious_affiliation_id"></ng-select>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row form-group">
+          <label id="terms-of-christian-faith-label" class="col-4 col-form-label text-content-2" for="terms-of-christian-faith-input">Belief System</label>
+          <div class="col-8">
+            <ng-select id="terms-of-christian-faith-input" class="text-content-2" placeholder="Select..." [formControlName]="keys.TERMS_OF_CHRISTIAN_FAITH" [items]="termsOfChristianFaith" bindLabel="terms_of_christian_faith_name" bindValue="terms_of_christian_faith_id"></ng-select>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  

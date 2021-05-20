@@ -1,0 +1,63 @@
+@import '../../../styles/kendo-grid.css';
+@import '../../../styles/overview-table.css';
+
+.page-container {
+  padding-top: 15px;
+}
+
+.container-fluid {
+  background: transparent;
+}
+
+#addPersonBtn {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+th,
+td {
+  padding: 0;
+  width: 6%;
+}
+
+tbody {
+  display: block;
+  height: 70vh;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+}
+
+.td-button-bar-1 {
+  padding: 10px 8px 10px 0;
+  background-color: white;
+}
+
+#mergeRecordBtn {
+  float: right;
+  cursor: pointer;
+}
+
+#mergeRecordBtn > * {
+  display: inline-block;
+}
+
+#mergeRecordBtn > i {
+  vertical-align: top;
+}
+
+.merge-text {
+  padding-right: 4px;
+  vertical-align: bottom;
+}
+
+::ng-deep {
+  #peopleKendoGrid {
+    .k-grid-pager {
+      display: flex;
+    }
+  }
+}

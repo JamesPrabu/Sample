@@ -1,0 +1,41 @@
+div.inner-content {
+    padding-top: 1em;
+    min-height: 68vh;
+    max-height: 68vh;
+    overflow-y: auto;
+  }
+  
+  .nav-tabs {
+    border-bottom: 2px solid #1b8fc8;
+  }
+  
+  .nav-item {
+    cursor: pointer;
+  }
+  
+  .nav-tabs .nav-item {
+    margin-bottom: -2px;
+  }
+  
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    border: 2px solid #1b8fc8;
+    border-bottom: #fff;
+  }
+  
+  .profile-header {
+    line-height: 1.5;
+    padding: 0 20px;
+  }
+  
+  .local-footer {
+    padding: 20px 20px 0 20px;
+  }
+  
+  .profile-light-box {
+    margin: 20px 0;
+  }
+  
+  .profile-hr {
+    margin: 0;
+  }

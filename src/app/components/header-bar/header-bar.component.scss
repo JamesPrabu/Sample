@@ -1,0 +1,124 @@
+.align-vertical {
+    align-items: center;
+  }
+  
+  .float-right {
+    float: right;
+  }
+  
+  .header-row {
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    background-color: white;
+    height: 10vh;
+  }
+  
+  #homeLogoDiv {
+    cursor: pointer;
+    padding-right: 0;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .arrow_box {
+    position: absolute;
+    background: #ffffff;
+    width: 15%;
+    height: auto;
+    top: 67px;
+    right: 2px;
+    min-width: 210px;
+    border: 1px solid black;
+    z-index: 150;
+  }
+  .arrow_box:after, .arrow_box:before {
+    bottom: 100%;
+    left: 87%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+  
+  .arrow_box:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-bottom-color: #ffffff;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+  .arrow_box:before {
+    border-color: rgba(0, 0, 0, 0);
+    border-bottom-color: #000000;
+    border-width: 11px;
+    margin-left: -11px;
+  }
+  
+  .list-group {
+    color: #000000;
+  }
+  
+  
+  .btn:focus, .btn.focus {
+    box-shadow: none;
+  }
+  .btn-settings {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .list-group-item {
+    border: 0px;
+    padding: 0px;
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    font-family: Rubik,sans-serif;
+    color: black;
+  }
+  
+  #manageAccountBtn, #logoutButton {
+    color: #000000;
+    padding: 0px;
+  }
+  
+  .list-group-item:first-child {
+    border-bottom: 1px solid black !important;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  
+  
+  .btn-outline-secondary{
+    &:hover, &:not(:disabled):not(.disabled):active {
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+    }
+  
+  }
+  
+  ::ng-deep {
+    .popover {
+      width: 270px;
+      max-width: 270px;
+      left: 1.2% !important;
+      border-color: rgba(0, 0, 0, 1) !important;
+      border-radius: unset !important;
+      .popover-body{
+        padding: unset;
+      }
+    }
+    .bs-popover-bottom {
+      .arrow{
+        &::before{
+          border-bottom-color: rgba(0, 0, 0, 1);
+        }
+      }
+    }
+  }
+  
+  
+  
+  

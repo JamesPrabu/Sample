@@ -1,0 +1,54 @@
+<div class="top-nav-bar">
+    <img class="logo" src="../../../../assets/img/mission-pathways-logo.png" alt="Mission Pathways" />
+    <div>
+      <button id="settings" class="btn btn-settings" (click)="router.navigateByUrl('settings/grouptypes')">Settings</button>
+      <!-- <button id="loggedUserDiv" class="btn btn-outline-secondary mr-2 logged-user-icon" placement="bottom-right" ></button> -->
+      <button id="loggedUserDiv" class="btn btn-outline-secondary mr-2 logged-user-icon" [ngbPopover]="profileMenuContent" triggers="manual" #p1="ngbPopover" (click)="toggle(p1)" placement="bottom-right" popoverClass="popup-custom-class"></button>
+    </div>
+  </div>
+  <hr class="blue-line" />
+  <div class="banner-image">
+    <img src="../../../../assets/img/homepage-banner-cropped.jpg" alt="Banner Image" />
+  </div>
+  <div id="banner" class="banner-text">
+    <h1>Welcome to Mission Pathways!</h1>
+    <hr />
+    <h3>What would you like to do?</h3>
+  </div>
+  <div class="row justify-content-center">
+    <div  id="encounterModule" class="module col-2">
+      <h3 class="text-center">Encounter</h3>
+      <img id="sessionRetreatTileIcon" class="clickable-icon" src="../../../../assets/img/encounter-you-are-here-icon-black.svg" (click)="router.navigateByUrl('manageSessionsRetreats/overviewSessionsRetreats')" alt="Encounter" />
+      <button id="sessionRetreatTileButton" class="btn btn-primary btn-long" (click)="router.navigateByUrl('manageSessionsRetreats/overviewSessionsRetreats')">Sessions / Retreats</button>
+    </div>
+    <div class="module col-2" id="growModule" >
+      <h3 class="text-center">Grow</h3>
+      <img id="growIcon" class="clickable-icon" src="../../../../assets/img/grow-compass-icon-black.svg" (click)="router.navigateByUrl('grow')" alt="Grow" />
+      <button id="growButton" class="btn btn-primary btn-long" (click)="router.navigateByUrl('grow')">Groups</button>
+    </div>
+    <div class="module col-2" id="informModule" >
+      <h3 class="text-center">Inform</h3>
+      <img id="statisticsIcon" class="clickable-icon" src="../../../../assets/img/inform-map-icon-black.svg" (click)="router.navigateByUrl('statistics')" alt="Inform" />
+      <button id="statsButton" class="btn btn-primary btn-long" (click)="router.navigateByUrl('statistics')">Statistics</button>
+    </div>
+    <div class="module col-2" id="peopleProfileModule" >
+      <h3 class="text-center">Profiles</h3>
+      <img id="findPeopleIcon" class="clickable-icon" src="../../../../assets/img/profiles-one-person-icon-black.svg" (click)="navigateFindPeople()" alt="Profiles" />
+      <button id="findPeopleButton" class="btn btn-primary btn-long" (click)="navigateFindPeople()">People Profiles</button>
+    </div>
+  </div>  
+
+  <ng-template #profileMenuContent>
+    <ul class="list-group">
+      <li id="loggedUserId" class="list-group-item mt-3">{{this.loggedUserName}}</li>
+      <li id="manageAccount" class="list-group-item mt-3"> {{firstName}} {{lastName}}
+        <button id="manageAccountBtn" class="btn" (click)="openManageUserAccount()">Manage Account</button>
+      </li>
+      <li class="list-group-item mt-3 mb-3">
+        <button id="logoutButton" class="btn" >Logout</button> 
+        <!-- (click)="auth.logout()" -->
+      </li>
+    </ul>
+  </ng-template>
+
+  <router-outlet></router-outlet>

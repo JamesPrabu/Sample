@@ -1,0 +1,20 @@
+<div class="light-box">
+    <div class="light-box-header">
+      <span class="light-box-header-right">
+        <a class="btn close-icon" (click)="activeModal.dismiss()"></a>
+      </span>
+      <span class="text-title-2">Delete Record</span>
+      <hr />
+    </div>
+    <div>
+      <div id="divPersonToDelete">
+        You are about to delete the record of {{this.deletePerson.last_name}}, {{this.deletePerson.first_name}}.
+      </div>
+      <div id="divPersonToDelete2">This record contains no Faith Journey data. Any other data will be permanently lost.</div>
+    </div>
+    <div class="light-box-footer">
+      <span class="light-box-footer-right">
+        <button id="confirmDelete" class="btn btn-primary btn-sm" (click)="confirmDelete_Click()">Confirm Delete</button>
+      </span>
+    </div>
+  </div>

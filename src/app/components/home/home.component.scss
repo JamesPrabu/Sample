@@ -1,0 +1,49 @@
+.blue-line {
+  border: 3px solid #1b8fc8;
+  margin: 0;
+}
+
+.banner-image {
+  height: 400px;
+  display: flex;
+}
+
+.banner-image > img {
+  object-fit: cover;
+  max-width: 100%;
+  filter: brightness(50%);
+  z-index: -999;
+}
+
+.banner-text {
+  text-align: center;
+  margin-top: -400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.banner-text > hr {
+  height: 0.05rem;
+  width: 455px;
+  background-color: white;
+  margin-top: -12px;
+  margin-bottom: 8px;
+}
+
+.module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.module > img {
+  height: 115px;
+  width: 115px;
+  margin: 20px;
+  cursor: pointer;
+}
+

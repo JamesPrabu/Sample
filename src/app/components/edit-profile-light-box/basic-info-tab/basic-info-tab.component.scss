@@ -1,0 +1,42 @@
+hr {
+    border-top: solid 1px #797979;
+  }
+  
+  .margin-0 {
+    margin: 0;
+  }
+  
+  .fa-exclamation-circle {
+    font-size: 22px !important;
+  }
+  #preferredContactLabel {
+    padding-left: 15px;
+  }
+  
+  .icon-bar-icon {
+    height: 32px; 
+    width: 32px;
+  }
+  
+  .btn {
+    padding: 6px;
+  }
+  
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .icon-bar-button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .icon-bar-button-enable {
+    cursor: pointer;
+  }
+  
+  .icon-bar-button-disable {
+    cursor: not-allowed;
+  }
+  
